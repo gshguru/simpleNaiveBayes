@@ -5,8 +5,9 @@ def updateHashTable(currentDoc):
 	if Y.has_key(currentDoc[-1]): Y[currentDoc[-1]] += 1
 	else: Y[currentDoc[-1]] = 1
 	for j in range(0,len(currentDoc)-1):		
-		if (HashTable.has_key(str(currentDoc[-1]+currentDoc[j]))): HashTable[str(currentDoc[-1]+currentDoc[j])] += 1
-		else: HashTable[str(currentDoc[-1]+currentDoc[j])] = 1
+		if (HashTable.has_key(str(currentDoc[-1]+currentDoc[j]))): 
+			HashTable[str(currentDoc[-1]+currentDoc[j])] += 1
+		else:   HashTable[str(currentDoc[-1]+currentDoc[j])] = 1
 
 def test(X):
 	probabilities = list()	
@@ -20,6 +21,5 @@ def test(X):
 
 dataFile = open(sys.argv[1], "rb") # train
 for line in dataFile: updateHashTable(line[:-2].split(",")); totalDocs += 1
-
 dataFile = open(sys.argv[2], "rb") # test
 for line in dataFile: test(line[:-2].split(",")); print ""
