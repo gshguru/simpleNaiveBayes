@@ -12,8 +12,8 @@ def updateHashTable(currentDoc):
 def test(X):
 	probabilities = list()	
 	for key, value in Y.iteritems():
-		Prob = Y[key]/totalDocs # initializing with prior
-		for j in range( 0, len(X)-1 ): # features			
+		Prob = Y[key]/totalDocs 	# initializing with prior
+		for j in range( 0, len(X)-1 ): 	# features			
 			try: Prob *= HashTable[ str(key + X[j]) ] / float(Y[key]) 
 			except KeyError: Prob = 0; break # if combination is not found in the hash table
 		probabilities.append( [key,Prob] )		
